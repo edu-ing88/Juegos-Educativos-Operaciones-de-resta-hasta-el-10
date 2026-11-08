@@ -1,0 +1,59 @@
+/* ===== Base ===== */
+:root{--azul:#2f6fed;--verde:#3fb618;--naranja:#ff9a1f;--rojo:#e8554e;--sol:#ffc933;--tinta:#1f2a44}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--tinta);min-height:100vh;
+  background:linear-gradient(160deg,#d6f0ff,#fff3c4 60%,#ffd9e6) fixed}
+main{max-width:760px;margin:0 auto;padding:1rem;min-height:100vh;display:flex;align-items:center}
+.screen{display:none;width:100%;text-align:center;animation:in .4s}
+.screen.active{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+h1{font-size:clamp(1.7rem,6vw,3rem);margin:.3rem 0;color:var(--azul)}
+.sub{font-size:clamp(1.05rem,3.5vw,1.4rem);margin:.4rem 0 1rem}
+.hero{font-size:clamp(3.5rem,14vw,6rem);animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.how{display:inline-block;text-align:left;background:#fff;border-radius:20px;padding:1rem 1.2rem 1rem 2.4rem;font-size:clamp(1rem,3.3vw,1.25rem);line-height:1.6;margin:0 0 1rem}
+/* ===== Botones ===== */
+.btn{font:inherit;font-weight:700;font-size:1.1rem;color:#fff;background:var(--azul);border:0;border-bottom:5px solid #1b45a8;border-radius:16px;padding:.8rem 1.4rem;min-height:52px;cursor:pointer;margin:.3rem;transition:transform .1s}
+.btn:active{transform:translateY(3px);border-bottom-width:2px}
+.btn.big{font-size:clamp(1.3rem,5vw,1.8rem);background:var(--verde);border-bottom-color:#2a7d0d;padding:.8rem 2rem}
+.btn.orange{background:var(--naranja);border-bottom-color:#b86b00}
+.btn.red{background:var(--rojo);border-bottom-color:#a52c27}
+.btn:disabled{opacity:.5;cursor:default}
+button:focus-visible,input:focus-visible{outline:4px solid #ff6b9d;outline-offset:2px}
+/* ===== Cuenta regresiva ===== */
+#cd{font-size:clamp(5rem,28vw,12rem);font-weight:700;color:var(--azul);min-height:1.2em;line-height:1.2}
+#cd.pop{animation:cd .8s ease-in-out}
+#cd.go{font-size:clamp(2.4rem,11vw,5rem);color:var(--verde)}
+@keyframes cd{0%{transform:scale(.2);opacity:0}30%{transform:scale(1.15);opacity:1}70%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0}}
+/* ===== Juego ===== */
+.stats{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;font-size:clamp(.95rem,3vw,1.2rem)}
+.stats div{background:#fff;border-radius:999px;padding:.4rem .9rem}
+.bar{height:18px;background:#fff;border-radius:99px;margin:.8rem 0;overflow:hidden;border:2px solid #fff}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--verde),var(--sol));transition:width .5s}
+.op{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:center;background:#fff;border-radius:28px;padding:1.2rem .6rem;font-size:clamp(3rem,16vw,6.5rem);font-weight:700;box-shadow:0 8px 0 rgba(0,0,0,.1)}
+.op input{font:inherit;width:2.1em;text-align:center;border:4px solid var(--azul);border-radius:18px;color:var(--tinta);background:#f4f8ff;padding:0}
+.op.ok input{border-color:var(--verde);background:#eaffd9}
+.op.no input{border-color:var(--rojo);background:#ffe9e7}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
+#fb{min-height:5.5rem;font-size:clamp(1.3rem,5vw,2rem);font-weight:700;margin:.8rem 0 .2rem}
+#fb small{display:block;font-size:.7em;margin-top:.2rem;color:#c0392b}
+#fb.g{color:var(--verde);animation:pop .4s}
+#fb.r{color:var(--rojo)}
+@keyframes pop{from{transform:scale(.5);opacity:0}}
+.ctrl{margin-top:.6rem}
+/* ===== Modales ===== */
+dialog{border:0;border-radius:26px;padding:1.4rem;width:min(92vw,460px);max-height:92vh;overflow:auto;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.4);color:var(--tinta)}
+dialog::backdrop{background:rgba(20,30,60,.55)}
+dialog h2{margin:.2rem 0 1rem;font-size:clamp(1.2rem,4.5vw,1.6rem)}
+.res td{padding:.3rem .6rem;font-size:1.15rem;text-align:left}
+.res td:last-child{text-align:right;font-weight:700}
+.trophy{font-size:4.5rem;animation:bob 1.5s ease-in-out infinite}
+.badge{display:inline-block;background:var(--verde);color:#fff;font-weight:700;border-radius:99px;padding:.3rem 1rem;margin:.3rem}
+.msg{font-size:1.2rem;font-weight:700;margin:.8rem 0}
+/* ===== Lluvia de estrellas ===== */
+#rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2000}
+#rain i{position:absolute;top:-40px;font-style:normal;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}

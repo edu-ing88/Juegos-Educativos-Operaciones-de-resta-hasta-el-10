@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Aprendemos a restar hasta el 10!</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <!-- Pantalla de bienvenida -->
+  <section id="sWelcome" class="screen active">
+    <div class="hero">🍎➖🍎</div>
+    <h1>¡Aprendemos a restar hasta el 10!</h1>
+    <p class="sub">Resuelve las operaciones de resta y demuestra cuánto has aprendido.</p>
+    <ol class="how">
+      <li>Verás 10 restas, una por una.</li>
+      <li>Escribe la respuesta en la caja.</li>
+      <li>Pulsa «ENVIAR RESPUESTA» o la tecla Enter.</li>
+      <li>Cada acierto vale 10 puntos. ¡Puedes llegar a 100!</li>
+    </ol>
+    <button class="btn big" id="bStart">EMPEZAR</button>
+  </section>
+
+  <!-- Cuenta regresiva -->
+  <section id="sCount" class="screen"><div id="cd"></div></section>
+
+  <!-- Juego -->
+  <section id="sGame" class="screen">
+    <div class="stats">
+      <div>Pregunta <b id="tQ">1</b> de 10</div>
+      <div>✅ <b id="tOk">0</b></div>
+      <div>❌ <b id="tBad">0</b></div>
+      <div>⭐ <b id="tScore">0</b> pts</div>
+    </div>
+    <div class="bar" role="progressbar" aria-label="Progreso"><i id="bar"></i></div>
+    <div class="op" id="op">
+      <span id="nA">0</span><span>−</span><span id="nB">0</span><span>=</span>
+      <input id="ans" type="text" inputmode="numeric" autocomplete="off" maxlength="2" aria-label="Tu respuesta" placeholder="?">
+    </div>
+    <div id="fb" aria-live="polite"></div>
+    <button class="btn big" id="bSend">ENVIAR RESPUESTA</button>
+    <div class="ctrl">
+      <button class="btn orange" id="bReset">🔄 REINICIAR</button>
+      <button class="btn red" id="bExit">🚪 SALIR</button>
+    </div>
+  </section>
+</main>
+
+<div id="rain" aria-hidden="true"></div>
+
+<!-- Modales -->
+<dialog id="dExit">
+  <h2>¿Estás seguro de que deseas salir del juego?</h2>
+  <button class="btn red" id="exitYes">Sí, salir</button>
+  <button class="btn" id="exitNo">Continuar jugando</button>
+</dialog>
+<dialog id="dReset">
+  <h2>¿Quieres reiniciar el juego? Se borrará tu progreso.</h2>
+  <button class="btn orange" id="resetYes">Sí, reiniciar</button>
+  <button class="btn" id="resetNo">Cancelar</button>
+</dialog>
+<dialog id="dRes"></dialog>
+<script src="script.js"></script>
+</body>
+</html>
